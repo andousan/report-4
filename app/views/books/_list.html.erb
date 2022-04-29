@@ -1,0 +1,35 @@
+<div>
+    <h2>User info</h2>
+    <%= image_tag user.get_profile_image(100,100) %>
+    <table>
+        <tr>
+            <th>name</th>
+            <th><%= user.name %></th>
+        </tr>
+        <tr>
+            <th>introduction</th>
+            <th><%= user.introduction %></th>
+        </tr>
+    </table>
+</div>
+
+<div class = "user_edit">
+  <% if @user == current_user %>
+    <%= link_to "Edit", edit_user_path(user) %>
+  <% else %>
+    <%= link_to "Edit", user_path(current_user) %>
+  <% end %>
+</div>
+
+<div class = "sidebar">
+  <h2>New Book</h2>
+  <%= form_with model: book do |f| %>
+    <p>Title</p>
+      <%= f.text_field :title %>
+    <p>Option</p>
+      <%= f.text_area :body %>
+    <div class = "create_book">
+        <%= f.submit 'Create Book' %>
+    </div>
+  <% end %>
+</div>

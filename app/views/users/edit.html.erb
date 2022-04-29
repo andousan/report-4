@@ -1,0 +1,25 @@
+<h2>User info</h2>
+
+<%= form_with model: @user, method: :patch do |f| %>
+
+    <div class = "input">
+       <p>Name</p>
+       <%= f.text_field :name %>
+    </div>
+
+    <div class = "input">
+        <p>Image</p>
+        <%= f.file_field :profile_image, accept: "image/*" %>
+    </div>
+
+    <div class = "input">
+       <p>Introduction</p>
+       <%= f.text_area :introduction %>
+    </div>
+
+    <div class = "input">
+       <%= f.submit 'Update Book' %>
+    </div>
+
+ <% end %>
+ 
