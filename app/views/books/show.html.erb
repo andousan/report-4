@@ -60,16 +60,16 @@
         </tbody>
     </table>
     <div>
-        <% @book.book_comments.each do |book| %>
+        <% @book.book_comments.each do |book_comment| %>
             <p>
-                <%= image_tag book.user.get_profile_image(100,100) %>
-                <%= book.comment %>
-                <% if book.user == current_user %>
-                    <%= link_to "Destroy", book_book_comment_path(book.book, book), class: "btn btn-sm btn-danger", method: :delete %>
+                <%= image_tag book_comment.user.get_profile_image(100,100) %>
+                <%= book_comment.comment %>
+                <% if book_comment.user == current_user %>
+                    <%= link_to "Destroy", book_book_comment_path(book_comment.book, book_comment), class: "btn btn-sm btn-danger", method: :delete %>
                 <% end %>
                 </br>
-                <%= link_to user_path(@user.id) do %>
-                    <%= @user.name %>
+                <%= link_to user_path(book_comment.user.id) do %>
+                    <%= book_comment.user.name %>
                 <% end %>
             </p>
         <% end %>
